@@ -1,4 +1,8 @@
 package br.com.zenon;
 
-public class TransactionCustomer {
+import java.math.BigDecimal;
+
+public record TransactionCustomer (String name, BigDecimal oldBalance, BigDecimal newBalance){
+
 }
+
