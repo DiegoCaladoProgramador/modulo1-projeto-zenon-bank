@@ -20,9 +20,21 @@ public class Main {
         IO.println("--------------------------------------------------------------------------------------------------------------");
 
         var trasactionIngestor = new TransactionIngestor();
-        List<Transaction> transactions = trasactionIngestor.read("E:/posgraduação/javaElite/modulo1-projeto-zenon-bank/data/PS_20174392719_1491204439457_log.csv");
+        List<Transaction> transactions = trasactionIngestor.read("data/PS_20174392719_1491204439457_log.csv");
         IO.println(transactions.size());
 
         transactions.stream().limit(10).forEach(System.out::println);
+
+        IO.println("--------------------------------------------------------------------------------------------------------------");
+
+        List<Transaction> transactionsBadData = trasactionIngestor.read("data/paysim_with_bad_data.csv");
+        IO.println(transactionsBadData.size());
+        transactionsBadData.forEach(IO::println);
+
+        //tentando criar objeto invalido
+        /*new Transaction(1, TransactionType.PAYMENT, new BigDecimal("9838.64"),
+                null,
+                new TransactionCustomer("M1979787155", new BigDecimal("0.0"), new BigDecimal("0.0")),
+                false, false);*/
     }
 }
